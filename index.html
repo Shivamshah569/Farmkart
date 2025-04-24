@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>FarmsKart</title>
 
-  <!-- Tailwind CSS via CDN -->
+  
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Animate.css -->
+  
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 
   <style>
@@ -60,7 +60,7 @@
 </head>
 <body class="bg-white text-gray-900 font-sans transition-all duration-500">
 
-  <!-- Header -->
+  
   <header class="fixed top-0 left-0 w-full z-50 bg-white shadow-md p-4 flex justify-between items-center">
     <h1 class="text-2xl font-bold text-green-600">FarmsKart</h1>
     <button id="menu-toggle" class="md:hidden focus:outline-none">
@@ -77,7 +77,7 @@
     </nav>
   </header>
 
-  <!-- Mobile Menu -->
+  
   <nav id="mobile-menu" class="mobile-menu md:hidden hidden flex-col bg-white w-2/3 h-screen fixed top-16 right-0 shadow-lg p-6 space-y-4 z-40">
     <a href="#features" onclick="toggleMenu()">Features</a>
     <a href="#Hero" onclick="toggleMenu()">Download</a>
@@ -85,7 +85,7 @@
     <a href="#team" onclick="toggleMenu()">Our Team</a>
   </nav>
 
-  <!-- Hero -->
+ 
   <section id="Hero" class="pt-32 pb-20 px-6 bg-gradient-to-br from-green-100 to-yellow-100 text-center">
     <div class="max-w-4xl mx-auto">
       <h2 class="text-4xl md:text-5xl font-bold mb-6">Turning Organic Waste into Green Gold 🌱</h2>
@@ -97,7 +97,7 @@
     </div>
   </section>
 
-  <!-- Features -->
+  
   <section id="features" class="py-16 px-6 bg-white">
     <div class="max-w-6xl mx-auto">
       <h3 class="text-3xl font-semibold text-center mb-10">Features</h3>
@@ -130,7 +130,7 @@
     </div>
   </section>
 
-  <!-- Articles -->
+  
   <section id="articles" class="py-16 px-6 bg-gradient-to-br from-yellow-50 via-green-50 to-white transition-all duration-1000">
     <div class="max-w-6xl mx-auto">
       <h3 class="text-3xl font-semibold text-center mb-10 text-green-700">Articles</h3>
@@ -163,7 +163,7 @@
     </div>
   </section>
 
-  <!-- Team -->
+  
   <section id="team" class="py-16 px-6 bg-white">
     <div class="max-w-5xl mx-auto text-center">
       <h3 class="text-3xl font-semibold mb-10">Our Team</h3>
@@ -190,14 +190,14 @@
 
   <footer class="text-center text-sm py-6 bg-gray-100">© 2025 FarmsKart. All rights reserved.</footer>
 
-  <!-- JavaScript -->
+  
   <script>
-    // Mobile menu toggle
+    
     function toggleMenu() {
       document.getElementById('mobile-menu').classList.toggle('hidden');
     }
 
-    // Intersection Observer for fade-in animation
+    
     const faders = document.querySelectorAll('.fade-in');
     const appearOptions = {
       threshold: 0.1,
