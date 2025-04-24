@@ -3,13 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>FarmsKart</title>
-
+  <title>FarmsKart - Sustainable Waste Management</title>
   
   <script src="https://cdn.tailwindcss.com"></script>
-
-  
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 
   <style>
     html {
@@ -48,49 +46,73 @@
       width: 100%;
     }
     .mobile-menu {
-      transition: transform 0.3s ease-in-out;
-    }
-    .mobile-menu.hidden {
+      transition: all 0.3s ease-in-out;
       transform: translateX(100%);
     }
-    .mobile-menu:not(.hidden) {
+    .mobile-menu.active {
       transform: translateX(0);
+    }
+    .hamburger-active > span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    .hamburger-active > span:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburger-active > span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+    .testimonial-card {
+      transition: all 0.5s ease;
+      perspective: 1000px;
+    }
+    .testimonial-inner {
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+    }
+    .testimonial-card:hover .testimonial-inner {
+      transform: rotateY(10deg);
+    }
+    .quote-icon {
+      opacity: 0.1;
+      transition: opacity 0.3s ease;
+    }
+    .testimonial-card:hover .quote-icon {
+      opacity: 0.3;
     }
   </style>
 </head>
-<body class="bg-white text-gray-900 font-sans transition-all duration-500">
+<body class="bg-white text-gray-900 font-sans">
 
   
   <header class="fixed top-0 left-0 w-full z-50 bg-white shadow-md p-4 flex justify-between items-center">
     <h1 class="text-2xl font-bold text-green-600">FarmsKart</h1>
-    <button id="menu-toggle" class="md:hidden focus:outline-none">
-      <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M4 6h16M4 12h16M4 18h16" />
-      </svg>
+    <button id="hamburger" class="md:hidden focus:outline-none">
+      <span class="block w-6 h-0.5 bg-gray-900 mb-1.5 transition-all duration-300"></span>
+      <span class="block w-6 h-0.5 bg-gray-900 mb-1.5 transition-all duration-300"></span>
+      <span class="block w-6 h-0.5 bg-gray-900 transition-all duration-300"></span>
     </button>
     <nav id="menu" class="hidden md:flex gap-6 text-lg">
       <a href="#features" class="nav-link hover:text-green-600">Features</a>
       <a href="#Hero" class="nav-link hover:text-green-600">Download</a>
-      <a href="#articles" class="nav-link hover:text-green-600">Articles</a>
-      <a href="#team" class="nav-link hover:text-green-600">Our Team</a>
+      <a href="articles.html" class="nav-link hover:text-green-600">Articles</a>
+      <a href="team.html" class="nav-link hover:text-green-600">Our Team</a>
     </nav>
   </header>
 
   
-  <nav id="mobile-menu" class="mobile-menu md:hidden hidden flex-col bg-white w-2/3 h-screen fixed top-16 right-0 shadow-lg p-6 space-y-4 z-40">
-    <a href="#features" onclick="toggleMenu()">Features</a>
-    <a href="#Hero" onclick="toggleMenu()">Download</a>
-    <a href="#articles" onclick="toggleMenu()">Articles</a>
-    <a href="#team" onclick="toggleMenu()">Our Team</a>
+  <nav id="mobile-menu" class="mobile-menu md:hidden fixed top-16 right-0 w-2/3 h-screen bg-white shadow-lg p-6 space-y-4 z-40">
+    <a href="#features" class="block py-2 hover:text-green-600" onclick="toggleMenu()">Features</a>
+    <a href="#Hero" class="block py-2 hover:text-green-600" onclick="toggleMenu()">Download</a>
+    <a href="articles.html" class="block py-2 hover:text-green-600" onclick="toggleMenu()">Articles</a>
+    <a href="team.html" class="block py-2 hover:text-green-600" onclick="toggleMenu()">Our Team</a>
   </nav>
 
- 
+  
   <section id="Hero" class="pt-32 pb-20 px-6 bg-gradient-to-br from-green-100 to-yellow-100 text-center">
     <div class="max-w-4xl mx-auto">
-      <h2 class="text-4xl md:text-5xl font-bold mb-6">Turning Organic Waste into Green Gold 🌱</h2>
-      <p class="text-lg mb-8">AI-powered waste-to-fertilizer system promoting sustainability and smart agriculture.</p>
-      <div class="flex flex-col sm:flex-row justify-center gap-4">
+      <h2 class="text-4xl md:text-5xl font-bold mb-6 animate__animated animate__fadeIn">Turning Organic Waste into Green Gold 🌱</h2>
+      <p class="text-lg mb-8 animate__animated animate__fadeIn animate__delay-1s">AI-powered waste-to-fertilizer system promoting sustainability and smart agriculture.</p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4 animate__animated animate__fadeIn animate__delay-2s">
         <a href="apk/FarmsKartApp.apk" class="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-full shadow-lg transition-all hover:scale-105">Download for Android</a>
         <a href="https://testflight.apple.com/join/your-app-code" class="bg-yellow-500 hover:bg-yellow-600 text-white px-6 py-3 rounded-full shadow-lg transition-all hover:scale-105">Download for iOS</a>
       </div>
@@ -100,102 +122,129 @@
   
   <section id="features" class="py-16 px-6 bg-white">
     <div class="max-w-6xl mx-auto">
-      <h3 class="text-3xl font-semibold text-center mb-10">Features</h3>
+      <h3 class="text-3xl font-semibold text-center mb-10">Key Features</h3>
       <div class="grid md:grid-cols-3 gap-6">
         <div class="p-6 bg-green-50 rounded-2xl shadow text-center card-hover fade-in">
+          <div class="text-green-500 text-4xl mb-4"><i class="fas fa-robot"></i></div>
           <h4 class="text-xl font-semibold mb-2">AI Waste Detection</h4>
-          <p>Upload waste photos and let AI sort compostable materials.</p>
+          <p>Upload waste photos and let AI sort compostable materials with 95% accuracy.</p>
         </div>
         <div class="p-6 bg-green-50 rounded-2xl shadow text-center card-hover fade-in">
+          <div class="text-green-500 text-4xl mb-4"><i class="fas fa-route"></i></div>
           <h4 class="text-xl font-semibold mb-2">Smart Pickup Scheduling</h4>
-          <p>AI-optimized waste collection timing and routes.</p>
+          <p>AI-optimized waste collection routes reducing emissions by 30%.</p>
         </div>
         <div class="p-6 bg-green-50 rounded-2xl shadow text-center card-hover fade-in">
+          <div class="text-green-500 text-4xl mb-4"><i class="fas fa-trophy"></i></div>
           <h4 class="text-xl font-semibold mb-2">Gamified Rewards</h4>
-          <p>Earn points for contributing organic waste.</p>
+          <p>Earn points redeemable for eco-products and local discounts.</p>
         </div>
         <div class="p-6 bg-green-50 rounded-2xl shadow text-center card-hover fade-in">
-          <h4 class="text-xl font-semibold mb-2">Blockchain Transparency</h4>
-          <p>Track compost processing with blockchain.</p>
+          <div class="text-green-500 text-4xl mb-4"><i class="fas fa-link"></i></div>
+          <h4 class="text-xl font-semibold mb-2">Blockchain Tracking</h4>
+          <p>Transparent processing records from waste to final product.</p>
         </div>
         <div class="p-6 bg-green-50 rounded-2xl shadow text-center card-hover fade-in">
+          <div class="text-green-500 text-4xl mb-4"><i class="fas fa-store"></i></div>
           <h4 class="text-xl font-semibold mb-2">Fertilizer Marketplace</h4>
-          <p>Buy or donate compost through the app.</p>
+          <p>Directly connect with local farmers and gardeners.</p>
         </div>
         <div class="p-6 bg-green-50 rounded-2xl shadow text-center card-hover fade-in">
-          <h4 class="text-xl font-semibold mb-2">Sustainable Agriculture</h4>
-          <p>Boost soil health, reduce methane, and fight climate change.</p>
+          <div class="text-green-500 text-4xl mb-4"><i class="fas fa-leaf"></i></div>
+          <h4 class="text-xl font-semibold mb-2">Carbon Impact</h4>
+          <p>Track your personal contribution to reducing methane emissions.</p>
         </div>
       </div>
     </div>
   </section>
 
   
-  <section id="articles" class="py-16 px-6 bg-gradient-to-br from-yellow-50 via-green-50 to-white transition-all duration-1000">
+  <section class="py-16 px-6 bg-gradient-to-br from-yellow-50 via-green-50 to-white">
     <div class="max-w-6xl mx-auto">
-      <h3 class="text-3xl font-semibold text-center mb-10 text-green-700">Articles</h3>
-      <div class="grid md:grid-cols-3 gap-6">
-        <div class="p-6 bg-white rounded-xl shadow-lg card-hover fade-in border-t-4 border-green-400">
-          <h4 class="text-xl font-semibold mb-2 text-green-700">Why Composting is the Future</h4>
-          <p>Learn how composting helps the environment and how AI makes it better.</p>
+      <h3 class="text-3xl font-semibold text-center mb-12 text-green-700">What People Are Saying</h3>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <div class="testimonial-card bg-white rounded-xl shadow-lg p-6 fade-in">
+          <div class="testimonial-inner">
+            <div class="text-yellow-400 text-5xl mb-4 quote-icon"><i class="fas fa-quote-left"></i></div>
+            <p class="text-gray-700 mb-6">"FarmsKart has transformed how our apartment complex handles food waste. We've reduced our garbage by 40% and the compost has helped start a community garden!"</p>
+            <div class="flex items-center">
+              <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="Sarah J." class="w-12 h-12 rounded-full mr-4">
+              <div>
+                <h4 class="font-semibold">Sarah Johnson</h4>
+                <p class="text-sm text-gray-500">Community Leader, Bangalore</p>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="p-6 bg-white rounded-xl shadow-lg card-hover fade-in border-t-4 border-yellow-500">
-          <h4 class="text-xl font-semibold mb-2 text-yellow-600">Blockchain in Waste</h4>
-          <p>Explore how transparency and traceability enhance trust in green tech.</p>
+
+       
+        <div class="testimonial-card bg-white rounded-xl shadow-lg p-6 fade-in">
+          <div class="testimonial-inner">
+            <div class="text-yellow-400 text-5xl mb-4 quote-icon"><i class="fas fa-quote-left"></i></div>
+            <p class="text-gray-700 mb-6">"As a small-scale farmer, the quality of compost from FarmsKart is exceptional. The blockchain tracking gives me confidence in what I'm putting on my crops."</p>
+            <div class="flex items-center">
+              <img src="https://randomuser.me/api/portraits/men/65.jpg" alt="Rajesh P." class="w-12 h-12 rounded-full mr-4">
+              <div>
+                <h4 class="font-semibold">Rajesh Patel</h4>
+                <p class="text-sm text-gray-500">Organic Farmer, Pune</p>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="p-6 bg-white rounded-xl shadow-lg card-hover fade-in border-t-4 border-indigo-400">
-          <h4 class="text-xl font-semibold mb-2 text-indigo-600">Urban Farming with Compost</h4>
-          <p>From rooftops to community gardens, compost powers sustainable cities.</p>
-        </div>
-        <div class="p-6 bg-white rounded-xl shadow-lg card-hover fade-in border-t-4 border-pink-400">
-          <h4 class="text-xl font-semibold mb-2 text-pink-600">Incentivizing Green Behaviors</h4>
-          <p>How gamification motivates people to manage waste better.</p>
-        </div>
-        <div class="p-6 bg-white rounded-xl shadow-lg card-hover fade-in border-t-4 border-blue-400">
-          <h4 class="text-xl font-semibold mb-2 text-blue-600">Digital Marketplace for Organic Fertilizer</h4>
-          <p>Connects processed compost with farmers, businesses, and sustainability advocates.</p>
-        </div>
-        <div class="p-6 bg-white rounded-xl shadow-lg card-hover fade-in border-t-4 border-purple-500">
-          <h4 class="text-xl font-semibold mb-2 text-purple-700">Soil Health Revolution</h4>
-          <p>Learn why compost is a game changer for degraded soils.</p>
+
+        
+        <div class="testimonial-card bg-white rounded-xl shadow-lg p-6 fade-in">
+          <div class="testimonial-inner">
+            <div class="text-yellow-400 text-5xl mb-4 quote-icon"><i class="fas fa-quote-left"></i></div>
+            <p class="text-gray-700 mb-6">"The gamification features make composting fun for my kids. We compete as a family to earn points and learn about sustainability together."</p>
+            <div class="flex items-center">
+              <img src="https://randomuser.me/api/portraits/women/28.jpg" alt="Priya M." class="w-12 h-12 rounded-full mr-4">
+              <div>
+                <h4 class="font-semibold">Priya Mehta</h4>
+                <p class="text-sm text-gray-500">Parent & Educator, Delhi</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  
-  <section id="team" class="py-16 px-6 bg-white">
-    <div class="max-w-5xl mx-auto text-center">
-      <h3 class="text-3xl font-semibold mb-10">Our Team</h3>
-      <div class="grid md:grid-cols-4 gap-6">
-        <div class="p-4 bg-green-50 rounded-xl shadow fade-in">
-          <h4 class="text-lg font-semibold">Adarsh Shrivastav</h4>
-          <p class="text-sm text-gray-600">Frontend Web & Mobile</p>
-        </div>
-        <div class="p-4 bg-green-50 rounded-xl shadow fade-in">
-          <h4 class="text-lg font-semibold">Shivam Kumar</h4>
-          <p class="text-sm text-gray-600">Full Stack UI/UX & Web</p>
-        </div>
-        <div class="p-4 bg-green-50 rounded-xl shadow fade-in">
-          <h4 class="text-lg font-semibold">Tejas Aditya</h4>
-          <p class="text-sm text-gray-600">Frontened Web</p>
-        </div>
-        <div class="p-4 bg-green-50 rounded-xl shadow fade-in">
-          <h4 class="text-lg font-semibold">Raj Tiwari</h4>
-          <p class="text-sm text-gray-600">Frontend Web</p>
+
+  <footer class="text-center text-sm py-6 bg-gray-100">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <p>© 2025 FarmsKart. All rights reserved.</p>
+        <div class="flex space-x-4 mt-4 md:mt-0">
+          <a href="#" class="text-gray-600 hover:text-green-600"><i class="fab fa-twitter"></i></a>
+          <a href="https://www.instagram.com/shivamzec/profilecard/?igsh=cHk4NTk1cTl3am00" class="text-gray-600 hover:text-green-600"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.linkedin.com/in/shivam-kumar-9366a133b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="text-gray-600 hover:text-green-600"><i class="fab fa-linkedin"></i></a>
+          <a href="#" class="text-gray-600 hover:text-green-600"><i class="fab fa-facebook"></i></a>
         </div>
       </div>
     </div>
-  </section>
+  </footer>
 
-  <footer class="text-center text-sm py-6 bg-gray-100">© 2025 FarmsKart. All rights reserved.</footer>
-
-  
   <script>
     
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
     function toggleMenu() {
-      document.getElementById('mobile-menu').classList.toggle('hidden');
+      hamburger.classList.toggle('hamburger-active');
+      mobileMenu.classList.toggle('active');
     }
+    
+    hamburger.addEventListener('click', toggleMenu);
+    
+    
+    document.addEventListener('click', function(event) {
+      if (!hamburger.contains(event.target) && !mobileMenu.contains(event.target)) {
+        hamburger.classList.remove('hamburger-active');
+        mobileMenu.classList.remove('active');
+      }
+    });
 
     
     const faders = document.querySelectorAll('.fade-in');

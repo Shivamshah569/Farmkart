@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Composting Articles | FarmsKart</title>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    .article-card {
+      transition: all 0.3s ease;
+      perspective: 1000px;
+    }
+    .article-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    }
+    .article-image {
+      transition: transform 0.5s ease;
+    }
+    .article-card:hover .article-image {
+      transform: scale(1.05);
+    }
+    .nav-link {
+      position: relative;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -2px;
+      left: 0;
+      background-color: #16a34a;
+      transition: width 0.3s ease;
+    }
+    .nav-link:hover::after {
+      width: 100%;
+    }
+    .mobile-menu {
+      transition: all 0.3s ease-in-out;
+      transform: translateX(100%);
+    }
+    .mobile-menu.active {
+      transform: translateX(0);
+    }
+    .hamburger-active > span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    .hamburger-active > span:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburger-active > span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+    .article-bg {
+      background: linear-gradient(135deg, #f0fff4 0%, #f7fee7 50%, #ecfccb 100%);
+    }
+  </style>
+</head>
+<body class="bg-white text-gray-900 font-sans">
+
+  
+  <header class="fixed top-0 left-0 w-full z-50 bg-white shadow-md p-4 flex justify-between items-center">
+    <h1 class="text-2xl font-bold text-green-600">FarmsKart</h1>
+    <button id="hamburger" class="md:hidden focus:outline-none">
+      <span class="block w-6 h-0.5 bg-gray-900 mb-1.5 transition-all duration-300"></span>
+      <span class="block w-6 h-0.5 bg-gray-900 mb-1.5 transition-all duration-300"></span>
+      <span class="block w-6 h-0.5 bg-gray-900 transition-all duration-300"></span>
+    </button>
+    <nav id="menu" class="hidden md:flex gap-6 text-lg">
+      <a href="index.html#features" class="nav-link hover:text-green-600">Features</a>
+      <a href="index.html#Hero" class="nav-link hover:text-green-600">Download</a>
+      <a href="#" class="nav-link text-green-600 font-semibold">Articles</a>
+      <a href="team.html" class="nav-link hover:text-green-600">Our Team</a>
+    </nav>
+  </header>
+
+  
+  <nav id="mobile-menu" class="mobile-menu md:hidden fixed top-16 right-0 w-2/3 h-screen bg-white shadow-lg p-6 space-y-4 z-40">
+    <a href="index.html#features" class="block py-2 hover:text-green-600" onclick="toggleMenu()">Features</a>
+    <a href="index.html#Hero" class="block py-2 hover:text-green-600" onclick="toggleMenu()">Download</a>
+    <a href="#" class="block py-2 text-green-600 font-semibold" onclick="toggleMenu()">Articles</a>
+    <a href="team.html" class="block py-2 hover:text-green-600" onclick="toggleMenu()">Our Team</a>
+  </nav>
+
+ 
+  <section class="pt-32 pb-20 px-6 article-bg text-center">
+    <div class="max-w-4xl mx-auto animate__animated animate__fadeIn">
+      <h2 class="text-4xl md:text-5xl font-bold mb-6">Composting Knowledge Center</h2>
+      <p class="text-lg mb-8">Learn how composting transforms waste into valuable resources and helps combat climate change.</p>
+    </div>
+  </section>
+
+  
+  <section class="py-16 px-6 bg-white">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <a href="https://www.nrdc.org/stories/composting-101" target="_blank" class="article-card bg-white rounded-xl shadow-lg overflow-hidden">
+          <div class="overflow-hidden h-48">
+            <img src="https://images.unsplash.com/photo-1605000797499-95a51c5269ae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80" 
+                 alt="Composting Basics" class="w-full h-full object-cover article-image">
+          </div>
+          <div class="p-6">
+            <div class="flex justify-between items-center mb-2">
+              <span class="text-sm text-green-600 font-medium">Beginner's Guide</span>
+              <span class="text-xs text-gray-500">8 min read</span>
+            </div>
+            <h3 class="text-xl font-semibold mb-2">Composting 101: How to Turn Waste into Garden Gold</h3>
+            <p class="text-gray-600 mb-4">Learn the basics of composting, from what materials to use to how to maintain your pile for optimal results.</p>
+            <div class="flex items-center text-sm text-gray-500">
+              <span>Natural Resources Defense Council</span>
+            </div>
+          </div>
+        </a>
+
+        
+        <a href="https://www.epa.gov/recycle/composting-home" target="_blank" class="article-card bg-white rounded-xl shadow-lg overflow-hidden">
+          <div class="overflow-hidden h-48">
+            <img src="https://images.unsplash.com/photo-1589927986089-35812388d1f4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                 alt="Home Composting" class="w-full h-full object-cover article-image">
+          </div>
+          <div class="p-6">
+            <div class="flex justify-between items-center mb-2">
+              <span class="text-sm text-green-600 font-medium">Urban Solutions</span>
+              <span class="text-xs text-gray-500">10 min read</span>
+            </div>
+            <h3 class="text-xl font-semibold mb-2">Home Composting: A Complete Guide for Urban Dwellers</h3>
+            <p class="text-gray-600 mb-4">EPA's comprehensive guide to composting in small spaces, including apartment-friendly solutions.</p>
+            <div class="flex items-center text-sm text-gray-500">
+              <span>U.S. Environmental Protection Agency</span>
+            </div>
+          </div>
+        </a>
+
+        
+        <a href="https://www.nationalgeographic.com/environment/article/composting" target="_blank" class="article-card bg-white rounded-xl shadow-lg overflow-hidden">
+          <div class="overflow-hidden h-48">
+            <img src="png/climate.jpg" 
+                 alt="Climate Impact" class="w-full h-full object-cover article-image">
+          </div>
+          <div class="p-6">
+            <div class="flex justify-between items-center mb-2">
+              <span class="text-sm text-green-600 font-medium">Climate Science</span>
+              <span class="text-xs text-gray-500">12 min read</span>
+            </div>
+            <h3 class="text-xl font-semibold mb-2">How Composting Can Help Fight Climate Change</h3>
+            <p class="text-gray-600 mb-4">Discover how diverting organic waste from landfills reduces methane emissions and sequesters carbon.</p>
+            <div class="flex items-center text-sm text-gray-500">
+              <span>National Geographic</span>
+            </div>
+          </div>
+        </a>
+
+        
+        <a href="https://www.agriculture.com/news/crops/the-science-behind-composting" target="_blank" class="article-card bg-white rounded-xl shadow-lg overflow-hidden">
+          <div class="overflow-hidden h-48">
+            <img src="https://images.unsplash.com/photo-1603105037880-880cd4edfb0d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                 alt="Compost Science" class="w-full h-full object-cover article-image">
+          </div>
+          <div class="p-6">
+            <div class="flex justify-between items-center mb-2">
+              <span class="text-sm text-green-600 font-medium">Agricultural Science</span>
+              <span class="text-xs text-gray-500">15 min read</span>
+            </div>
+            <h3 class="text-xl font-semibold mb-2">The Science Behind Composting: Microbes at Work</h3>
+            <p class="text-gray-600 mb-4">Explore the fascinating biology of composting and how microorganisms transform waste into nutrient-rich soil.</p>
+            <div class="flex items-center text-sm text-gray-500">
+              <span>Successful Farming</span>
+            </div>
+          </div>
+        </a>
+
+        
+        <a href="https://www.permaculturenews.org/2017/03/07/composting-technology/" target="_blank" class="article-card bg-white rounded-xl shadow-lg overflow-hidden">
+          <div class="overflow-hidden h-48">
+            <img src="png/compost.jpg" 
+                 alt="Compost Tech" class="w-full h-full object-cover article-image">
+          </div>
+          <div class="p-6">
+            <div class="flex justify-between items-center mb-2">
+              <span class="text-sm text-green-600 font-medium">Innovation</span>
+              <span class="text-xs text-gray-500">10 min read</span>
+            </div>
+            <h3 class="text-xl font-semibold mb-2">Modern Composting Technologies Changing Waste Management</h3>
+            <p class="text-gray-600 mb-4">From smart bins to AI-powered sorting, discover how technology is revolutionizing composting.</p>
+            <div class="flex items-center text-sm text-gray-500">
+              <span>Permaculture Research Institute</span>
+            </div>
+          </div>
+        </a>
+
+        
+        <a href="https://www.sciencedirect.com/science/article/pii/S0959652620308299" target="_blank" class="article-card bg-white rounded-xl shadow-lg overflow-hidden">
+          <div class="overflow-hidden h-48">
+            <img src="https://images.unsplash.com/photo-1605001011156-cbf0b0f67a51?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                 alt="Urban Composting" class="w-full h-full object-cover article-image">
+          </div>
+          <div class="p-6">
+            <div class="flex justify-between items-center mb-2">
+              <span class="text-sm text-green-600 font-medium">Research</span>
+              <span class="text-xs text-gray-500">20 min read</span>
+            </div>
+            <h3 class="text-xl font-semibold mb-2">Large-Scale Composting: Solutions for Cities</h3>
+            <p class="text-gray-600 mb-4">Scientific review of municipal composting programs and their environmental benefits.</p>
+            <div class="flex items-center text-sm text-gray-500">
+              <span>Journal of Cleaner Production</span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  
+  <section class="py-16 px-6 bg-green-50">
+    <div class="max-w-4xl mx-auto text-center">
+      <h3 class="text-2xl font-semibold mb-4">Stay Updated on Composting Innovations</h3>
+      <p class="mb-6">Subscribe to our monthly newsletter for the latest articles, tips, and FarmsKart updates.</p>
+      <form class="flex flex-col sm:flex-row gap-2 max-w-md mx-auto">
+        <input type="email" placeholder="Your email address" class="flex-grow px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-500">
+        <button type="submit" class="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-lg shadow transition-all">Subscribe</button>
+      </form>
+    </div>
+  </section>
+
+  <footer class="text-center text-sm py-6 bg-gray-100">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <p>© 2025 FarmsKart. All rights reserved.</p>
+        <div class="flex space-x-4 mt-4 md:mt-0">
+          <a href="#" class="text-gray-600 hover:text-green-600"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="text-gray-600 hover:text-green-600"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="text-gray-600 hover:text-green-600"><i class="fab fa-linkedin"></i></a>
+          <a href="#" class="text-gray-600 hover:text-green-600"><i class="fab fa-facebook"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    function toggleMenu() {
+      hamburger.classList.toggle('hamburger-active');
+      mobileMenu.classList.toggle('active');
+    }
+    
+    hamburger.addEventListener('click', toggleMenu);
+    
+    
+    document.addEventListener('click', function(event) {
+      if (!hamburger.contains(event.target) && !mobileMenu.contains(event.target)) {
+        hamburger.classList.remove('hamburger-active');
+        mobileMenu.classList.remove('active');
+      }
+    });
+
+    
+    const articleCards = document.querySelectorAll('.article-card');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+          entry.target.style.transitionDelay = `${index * 0.1}s`;
+          entry.target.classList.add('animate__animated', 'animate__fadeInUp');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
+
+    articleCards.forEach(card => {
+      observer.observe(card);
+    });
+  </script>
+</body>
+</html>
