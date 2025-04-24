@@ -6,7 +6,6 @@
   <title>FarmsKart - Sustainable Waste Management</title>
   
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 
   <style>
@@ -16,7 +15,7 @@
     .fade-in {
       opacity: 0;
       transform: translateY(20px);
-      transition: all 1s ease-out;
+      transition: all 0.6s ease-out;
     }
     .fade-in.visible {
       opacity: 1;
@@ -62,22 +61,18 @@
       transform: rotate(-45deg) translate(5px, -5px);
     }
     .testimonial-card {
-      transition: all 0.5s ease;
-      perspective: 1000px;
+      transition: all 0.4s ease;
     }
-    .testimonial-inner {
-      transition: transform 0.6s;
-      transform-style: preserve-3d;
+    .testimonial-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
     }
-    .testimonial-card:hover .testimonial-inner {
-      transform: rotateY(10deg);
+    .hero-content {
+      animation: fadeIn 0.8s ease-out forwards;
     }
-    .quote-icon {
-      opacity: 0.1;
-      transition: opacity 0.3s ease;
-    }
-    .testimonial-card:hover .quote-icon {
-      opacity: 0.3;
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
@@ -109,10 +104,10 @@
 
   
   <section id="Hero" class="pt-32 pb-20 px-6 bg-gradient-to-br from-green-100 to-yellow-100 text-center">
-    <div class="max-w-4xl mx-auto">
-      <h2 class="text-4xl md:text-5xl font-bold mb-6 animate__animated animate__fadeIn">Turning Organic Waste into Green Gold 🌱</h2>
-      <p class="text-lg mb-8 animate__animated animate__fadeIn animate__delay-1s">AI-powered waste-to-fertilizer system promoting sustainability and smart agriculture.</p>
-      <div class="flex flex-col sm:flex-row justify-center gap-4 animate__animated animate__fadeIn animate__delay-2s">
+    <div class="max-w-4xl mx-auto hero-content">
+      <h2 class="text-4xl md:text-5xl font-bold mb-6">Turning Organic Waste into Green Gold 🌱</h2>
+      <p class="text-lg mb-8">AI-powered waste-to-fertilizer system promoting sustainability and smart agriculture.</p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
         <a href="apk/FarmsKartApp.apk" class="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-full shadow-lg transition-all hover:scale-105">Download for Android</a>
         <a href="https://testflight.apple.com/join/your-app-code" class="bg-yellow-500 hover:bg-yellow-600 text-white px-6 py-3 rounded-full shadow-lg transition-all hover:scale-105">Download for iOS</a>
       </div>
@@ -122,7 +117,7 @@
   
   <section id="features" class="py-16 px-6 bg-white">
     <div class="max-w-6xl mx-auto">
-      <h3 class="text-3xl font-semibold text-center mb-10">Key Features</h3>
+      <h3 class="text-3xl font-semibold text-center mb-10 fade-in">Key Features</h3>
       <div class="grid md:grid-cols-3 gap-6">
         <div class="p-6 bg-green-50 rounded-2xl shadow text-center card-hover fade-in">
           <div class="text-green-500 text-4xl mb-4"><i class="fas fa-robot"></i></div>
@@ -161,49 +156,35 @@
   
   <section class="py-16 px-6 bg-gradient-to-br from-yellow-50 via-green-50 to-white">
     <div class="max-w-6xl mx-auto">
-      <h3 class="text-3xl font-semibold text-center mb-12 text-green-700">What People Are Saying</h3>
+      <h3 class="text-3xl font-semibold text-center mb-12 text-green-700 fade-in">What People Are Saying</h3>
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        
         <div class="testimonial-card bg-white rounded-xl shadow-lg p-6 fade-in">
-          <div class="testimonial-inner">
-            <div class="text-yellow-400 text-5xl mb-4 quote-icon"><i class="fas fa-quote-left"></i></div>
-            <p class="text-gray-700 mb-6">"FarmsKart has transformed how our apartment complex handles food waste. We've reduced our garbage by 40% and the compost has helped start a community garden!"</p>
-            <div class="flex items-center">
-              <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="Sarah J." class="w-12 h-12 rounded-full mr-4">
-              <div>
-                <h4 class="font-semibold">Sarah Johnson</h4>
-                <p class="text-sm text-gray-500">Community Leader, Bangalore</p>
-              </div>
+          <p class="text-gray-700 mb-6">"FarmsKart has transformed how our apartment complex handles food waste. We've reduced our garbage by 40%!"</p>
+          <div class="flex items-center">
+            <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="Sarah J." class="w-12 h-12 rounded-full mr-4">
+            <div>
+              <h4 class="font-semibold">Sarah Johnson</h4>
+              <p class="text-sm text-gray-500">Community Leader, Bangalore</p>
             </div>
           </div>
         </div>
-
-       
         <div class="testimonial-card bg-white rounded-xl shadow-lg p-6 fade-in">
-          <div class="testimonial-inner">
-            <div class="text-yellow-400 text-5xl mb-4 quote-icon"><i class="fas fa-quote-left"></i></div>
-            <p class="text-gray-700 mb-6">"As a small-scale farmer, the quality of compost from FarmsKart is exceptional. The blockchain tracking gives me confidence in what I'm putting on my crops."</p>
-            <div class="flex items-center">
-              <img src="https://randomuser.me/api/portraits/men/65.jpg" alt="Rajesh P." class="w-12 h-12 rounded-full mr-4">
-              <div>
-                <h4 class="font-semibold">Rajesh Patel</h4>
-                <p class="text-sm text-gray-500">Organic Farmer, Pune</p>
-              </div>
+          <p class="text-gray-700 mb-6">"The quality of compost from FarmsKart is exceptional. The blockchain tracking gives me confidence in what I'm using."</p>
+          <div class="flex items-center">
+            <img src="https://randomuser.me/api/portraits/men/65.jpg" alt="Rajesh P." class="w-12 h-12 rounded-full mr-4">
+            <div>
+              <h4 class="font-semibold">Rajesh Patel</h4>
+              <p class="text-sm text-gray-500">Organic Farmer, Pune</p>
             </div>
           </div>
         </div>
-
-        
         <div class="testimonial-card bg-white rounded-xl shadow-lg p-6 fade-in">
-          <div class="testimonial-inner">
-            <div class="text-yellow-400 text-5xl mb-4 quote-icon"><i class="fas fa-quote-left"></i></div>
-            <p class="text-gray-700 mb-6">"The gamification features make composting fun for my kids. We compete as a family to earn points and learn about sustainability together."</p>
-            <div class="flex items-center">
-              <img src="https://randomuser.me/api/portraits/women/28.jpg" alt="Priya M." class="w-12 h-12 rounded-full mr-4">
-              <div>
-                <h4 class="font-semibold">Priya Mehta</h4>
-                <p class="text-sm text-gray-500">Parent & Educator, Delhi</p>
-              </div>
+          <p class="text-gray-700 mb-6">"The gamification features make composting fun for my kids. We compete as a family to earn points!"</p>
+          <div class="flex items-center">
+            <img src="https://randomuser.me/api/portraits/women/28.jpg" alt="Priya M." class="w-12 h-12 rounded-full mr-4">
+            <div>
+              <h4 class="font-semibold">Priya Mehta</h4>
+              <p class="text-sm text-gray-500">Parent & Educator, Delhi</p>
             </div>
           </div>
         </div>
@@ -212,12 +193,13 @@
   </section>
 
 
+
   <footer class="text-center text-sm py-6 bg-gray-100">
     <div class="max-w-6xl mx-auto px-6">
       <div class="flex flex-col md:flex-row justify-between items-center">
         <p>© 2025 FarmsKart. All rights reserved.</p>
         <div class="flex space-x-4 mt-4 md:mt-0">
-          <a href="#" class="text-gray-600 hover:text-green-600"><i class="fab fa-twitter"></i></a>
+          <a href="https://github.com/Shivamshah569" class="text-gray-600 hover:text-green-600"><i class="fab fa-twitter"></i></a>
           <a href="https://www.instagram.com/shivamzec/profilecard/?igsh=cHk4NTk1cTl3am00" class="text-gray-600 hover:text-green-600"><i class="fab fa-instagram"></i></a>
           <a href="https://www.linkedin.com/in/shivam-kumar-9366a133b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="text-gray-600 hover:text-green-600"><i class="fab fa-linkedin"></i></a>
           <a href="#" class="text-gray-600 hover:text-green-600"><i class="fab fa-facebook"></i></a>
@@ -247,6 +229,7 @@
     });
 
     
+    
     const faders = document.querySelectorAll('.fade-in');
     const appearOptions = {
       threshold: 0.1,
@@ -264,6 +247,9 @@
     faders.forEach(fader => {
       appearOnScroll.observe(fader);
     });
+
+    
+    document.querySelector('.hero-content').classList.add('visible');
   </script>
 </body>
 </html>
