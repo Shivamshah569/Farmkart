@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FarmsKart</title>
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Animate.css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 1s ease-out;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .card-hover {
+      transition: all 0.3s ease;
+    }
+    .card-hover:hover {
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
+    }
+    .nav-link {
+      position: relative;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -2px;
+      left: 0;
+      background-color: #16a34a;
+      transition: width 0.3s ease;
+    }
+    .nav-link:hover::after {
+      width: 100%;
+    }
+    .mobile-menu {
+      transition: transform 0.3s ease-in-out;
+    }
+    .mobile-menu.hidden {
+      transform: translateX(100%);
+    }
+    .mobile-menu:not(.hidden) {
+      transform: translateX(0);
+    }
+  </style>
+</head>
+<body class="bg-white text-gray-900 font-sans transition-all duration-500">
+
+  <!-- Header -->
+  <header class="fixed top-0 left-0 w-full z-50 bg-white shadow-md p-4 flex justify-between items-center">
+    <h1 class="text-2xl font-bold text-green-600">FarmsKart</h1>
+    <button id="menu-toggle" class="md:hidden focus:outline-none">
+      <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+    <nav id="menu" class="hidden md:flex gap-6 text-lg">
+      <a href="#features" class="nav-link hover:text-green-600">Features</a>
+      <a href="#Hero" class="nav-link hover:text-green-600">Download</a>
+      <a href="#articles" class="nav-link hover:text-green-600">Articles</a>
+      <a href="#team" class="nav-link hover:text-green-600">Our Team</a>
+    </nav>
+  </header>
+
+  <!-- Mobile Menu -->
+  <nav id="mobile-menu" class="mobile-menu md:hidden hidden flex-col bg-white w-2/3 h-screen fixed top-16 right-0 shadow-lg p-6 space-y-4 z-40">
+    <a href="#features" onclick="toggleMenu()">Features</a>
+    <a href="#Hero" onclick="toggleMenu()">Download</a>
+    <a href="#articles" onclick="toggleMenu()">Articles</a>
+    <a href="#team" onclick="toggleMenu()">Our Team</a>
+  </nav>
+
+  <!-- Hero -->
+  <section id="Hero" class="pt-32 pb-20 px-6 bg-gradient-to-br from-green-100 to-yellow-100 text-center">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-4xl md:text-5xl font-bold mb-6">Turning Organic Waste into Green Gold 🌱</h2>
+      <p class="text-lg mb-8">AI-powered waste-to-fertilizer system promoting sustainability and smart agriculture.</p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a href="apk/FarmsKartApp.apk" class="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-full shadow-lg transition-all hover:scale-105">Download for Android</a>
+        <a href="https://testflight.apple.com/join/your-app-code" class="bg-yellow-500 hover:bg-yellow-600 text-white px-6 py-3 rounded-full shadow-lg transition-all hover:scale-105">Download for iOS</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section id="features" class="py-16 px-6 bg-white">
+    <div class="max-w-6xl mx-auto">
+      <h3 class="text-3xl font-semibold text-center mb-10">Features</h3>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="p-6 bg-green-50 rounded-2xl shadow text-center card-hover fade-in">
+          <h4 class="text-xl font-semibold mb-2">AI Waste Detection</h4>
+          <p>Upload waste photos and let AI sort compostable materials.</p>
+        </div>
+        <div class="p-6 bg-green-50 rounded-2xl shadow text-center card-hover fade-in">
+          <h4 class="text-xl font-semibold mb-2">Smart Pickup Scheduling</h4>
+          <p>AI-optimized waste collection timing and routes.</p>
+        </div>
+        <div class="p-6 bg-green-50 rounded-2xl shadow text-center card-hover fade-in">
+          <h4 class="text-xl font-semibold mb-2">Gamified Rewards</h4>
+          <p>Earn points for contributing organic waste.</p>
+        </div>
+        <div class="p-6 bg-green-50 rounded-2xl shadow text-center card-hover fade-in">
+          <h4 class="text-xl font-semibold mb-2">Blockchain Transparency</h4>
+          <p>Track compost processing with blockchain.</p>
+        </div>
+        <div class="p-6 bg-green-50 rounded-2xl shadow text-center card-hover fade-in">
+          <h4 class="text-xl font-semibold mb-2">Fertilizer Marketplace</h4>
+          <p>Buy or donate compost through the app.</p>
+        </div>
+        <div class="p-6 bg-green-50 rounded-2xl shadow text-center card-hover fade-in">
+          <h4 class="text-xl font-semibold mb-2">Sustainable Agriculture</h4>
+          <p>Boost soil health, reduce methane, and fight climate change.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Articles -->
+  <section id="articles" class="py-16 px-6 bg-gradient-to-br from-yellow-50 via-green-50 to-white transition-all duration-1000">
+    <div class="max-w-6xl mx-auto">
+      <h3 class="text-3xl font-semibold text-center mb-10 text-green-700">Articles</h3>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="p-6 bg-white rounded-xl shadow-lg card-hover fade-in border-t-4 border-green-400">
+          <h4 class="text-xl font-semibold mb-2 text-green-700">Why Composting is the Future</h4>
+          <p>Learn how composting helps the environment and how AI makes it better.</p>
+        </div>
+        <div class="p-6 bg-white rounded-xl shadow-lg card-hover fade-in border-t-4 border-yellow-500">
+          <h4 class="text-xl font-semibold mb-2 text-yellow-600">Blockchain in Waste</h4>
+          <p>Explore how transparency and traceability enhance trust in green tech.</p>
+        </div>
+        <div class="p-6 bg-white rounded-xl shadow-lg card-hover fade-in border-t-4 border-indigo-400">
+          <h4 class="text-xl font-semibold mb-2 text-indigo-600">Urban Farming with Compost</h4>
+          <p>From rooftops to community gardens, compost powers sustainable cities.</p>
+        </div>
+        <div class="p-6 bg-white rounded-xl shadow-lg card-hover fade-in border-t-4 border-pink-400">
+          <h4 class="text-xl font-semibold mb-2 text-pink-600">Incentivizing Green Behaviors</h4>
+          <p>How gamification motivates people to manage waste better.</p>
+        </div>
+        <div class="p-6 bg-white rounded-xl shadow-lg card-hover fade-in border-t-4 border-blue-400">
+          <h4 class="text-xl font-semibold mb-2 text-blue-600">Digital Marketplace for Organic Fertilizer</h4>
+          <p>Connects processed compost with farmers, businesses, and sustainability advocates.</p>
+        </div>
+        <div class="p-6 bg-white rounded-xl shadow-lg card-hover fade-in border-t-4 border-purple-500">
+          <h4 class="text-xl font-semibold mb-2 text-purple-700">Soil Health Revolution</h4>
+          <p>Learn why compost is a game changer for degraded soils.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team -->
+  <section id="team" class="py-16 px-6 bg-white">
+    <div class="max-w-5xl mx-auto text-center">
+      <h3 class="text-3xl font-semibold mb-10">Our Team</h3>
+      <div class="grid md:grid-cols-4 gap-6">
+        <div class="p-4 bg-green-50 rounded-xl shadow fade-in">
+          <h4 class="text-lg font-semibold">Adarsh Shrivastav</h4>
+          <p class="text-sm text-gray-600">Frontend Web & Mobile</p>
+        </div>
+        <div class="p-4 bg-green-50 rounded-xl shadow fade-in">
+          <h4 class="text-lg font-semibold">Shivam Kumar</h4>
+          <p class="text-sm text-gray-600">Full Stack UI/UX & Web</p>
+        </div>
+        <div class="p-4 bg-green-50 rounded-xl shadow fade-in">
+          <h4 class="text-lg font-semibold">Tejas Aditya</h4>
+          <p class="text-sm text-gray-600">Frontened Web</p>
+        </div>
+        <div class="p-4 bg-green-50 rounded-xl shadow fade-in">
+          <h4 class="text-lg font-semibold">Raj Tiwari</h4>
+          <p class="text-sm text-gray-600">Frontend Web</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="text-center text-sm py-6 bg-gray-100">© 2025 FarmsKart. All rights reserved.</footer>
+
+  <!-- JavaScript -->
+  <script>
+    // Mobile menu toggle
+    function toggleMenu() {
+      document.getElementById('mobile-menu').classList.toggle('hidden');
+    }
+
+    // Intersection Observer for fade-in animation
+    const faders = document.querySelectorAll('.fade-in');
+    const appearOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px',
+    };
+
+    const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      });
+    }, appearOptions);
+
+    faders.forEach(fader => {
+      appearOnScroll.observe(fader);
+    });
+  </script>
+</body>
+</html>
